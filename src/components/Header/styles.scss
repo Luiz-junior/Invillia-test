@@ -1,0 +1,21 @@
+.section-header {
+  background: #fff;
+  margin-top: 0;
+  padding: 20px 10px;
+  
+  .title {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    
+    @media (min-width: 768px) {
+      justify-content: left;
+      margin-left: 30px;
+    }
+
+    > img {
+      height: 60px;
+    }
+    
+  }
+}

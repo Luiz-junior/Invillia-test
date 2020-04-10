@@ -1,0 +1,18 @@
+.list-container {
+  background: #eee;
+  
+  .section-list-pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 90%;
+    padding: 50px 0px;
+  }
+
+}
+
+.loading {
+  color: #6e408d;
+  text-align: center;
+}
