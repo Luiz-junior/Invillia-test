@@ -1,0 +1,22 @@
+.container-pagination {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+
+  .btn-prev, .btn-next {
+    background: transparent;
+    height: 40px;
+    width: 50px;
+    border: none;
+    color: #333;
+    outline: none;
+    transition: ease-in .2s;
+
+    &:active {
+      background-color: #FFCB05;
+      color: white;
+      border: 1px solid #FFCB05;
+    }
+  }
+
+}

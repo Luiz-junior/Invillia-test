@@ -1,13 +1,11 @@
 import axios from 'axios';
 
 import api from '../../services/api';
-import { GET_POKEMON, GET_POKEMON_DETAILS, GET_DETAILS_INFO, ERROR } from './types';
+import { GET_POKEMON, GET_POKEMON_DETAILS, GET_DETAILS_INFO, SET_OFFSET, ERROR } from './types';
 
-export const getPokemon = () => {
+export const getPokemon = (offset) => {
   return async dispatch => {
-    const res = await api.get(`/pokemon?limit=10`)
-
-    /* res.data.results.map(poke => getPokemonDetails(poke.url)); */
+    const res = await api.get(`/pokemon?limit=10&offset=${offset}`)
 
     try {
       dispatch({
@@ -39,5 +37,12 @@ export const getPokemonDetails = (urlPokemon, idImage, pokeDetails) => {
 export const getDetailsInfo = (detailsInfo) => {
   return dispatch => {
     dispatch({ type: GET_DETAILS_INFO, detailsInfo })
+  }
+}
+
+export const setOffset = (offset) => {
+  return dispatch => {
+    console.log('of', offset);
+    dispatch({ type: SET_OFFSET, offset })
   }
 }

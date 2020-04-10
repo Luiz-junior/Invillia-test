@@ -1,11 +1,11 @@
-import { GET_POKEMON, GET_POKEMON_DETAILS, GET_DETAILS_INFO,  ERROR } from '../action/types';
+import { GET_POKEMON, GET_POKEMON_DETAILS, GET_DETAILS_INFO, SET_OFFSET, ERROR } from '../action/types';
 
 const initialState = {
   pokemon: [],
   pokemonDetails: [],
   detailsInfo: [],
   pokeImageId: [],
-  pages: [],
+  offset: 0,
   loading: true,
   errorStatus: ''
 }
@@ -22,6 +22,8 @@ export function pokemonReducer(state = initialState, action) {
           loading: false }
     case GET_DETAILS_INFO:
           return { ...state,  detailsInfo: action.detailsInfo }
+    case SET_OFFSET:
+          return { ...state, offset: action.offset }
     case ERROR:
       return { ...state, errorStatus: action.errorStatus }
     default:

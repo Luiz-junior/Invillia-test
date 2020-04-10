@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 
 import './styles.scss';
 import { getPokemon, getPokemonDetails, getDetailsInfo } from '../../store/action/pokemonAction';
 import FlipCard from '../../components/Flipcard';
+import Pagination from '../../components/Pagination';
 
 function Home() {
-
   const dispatch = useDispatch();
-  const history = useHistory();
-  let { id } = useParams();
 
-  const { pokemon, pokeDetails, detailsInfo, pokeImageId, loading } = useSelector(state => ({
+  const { pokemon, pokeDetails, pokeImageId, offset, loading } = useSelector(state => ({
     pokemon: state.pokemonReducer.pokemon,
     pokeDetails: state.pokemonReducer.pokemonDetails,
-    detailsInfo: state.pokemonReducer.detailsInfo,
     pokeImageId: state.pokemonReducer.pokeImageId,
+    offset: state.pokemonReducer.offset,
     loading: state.pokemonReducer.loading,
   }));
-  //useSelector(state => console.log('state: ', state.pokemonReducer))
-
+  
   useEffect(() => {
-    dispatch(getPokemon());
+    dispatch(getPokemon(offset));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, offset]);
 
   useEffect(()=> {pokeImageId.sort((a, b) => a - b)});
 
@@ -71,7 +67,7 @@ function Home() {
           )
         })}
       </section>
-      {/* <Pagination pages={pages} /> */}
+      <Pagination />
     </div>
   );
 }
