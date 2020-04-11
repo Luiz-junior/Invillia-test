@@ -27,8 +27,8 @@ function Pagination() {
   return (
     <div className="container-pagination">
       <div className="pagination">
-        <button onClick={() => onChangePage(offset - 10)} className="btn-prev" id="btn-prev">❮</button>
-        <button onClick={() => onChangePage(offset + 10)} className="btn-next">❯</button>
+        <button onClick={() => onChangePage(offset - 9)} className="btn-prev" id="btn-prev">❮</button>
+        <button onClick={() => onChangePage(offset + 9)} className="btn-next">❯</button>
       </div>
     </div>
   )

@@ -42,9 +42,14 @@ function Home() {
 
   const onRotateCard = (index, degValue, pokeId) => {
     getHability(pokeDetails, pokeId);
-
+    
     document.getElementById(`flip-card-${index}`).style.transform = `rotateY(${360}deg)`;
     document.getElementById(`flip-card-inner${index}`).style.transform = `rotateY(${degValue}deg)`;
+
+    if(pokeId)
+      document.getElementById(`img-poke-${index}`).style.display = 'none';
+    else 
+      document.getElementById(`img-poke-${index}`).style.display = 'block';
   }
 
   if (loading)

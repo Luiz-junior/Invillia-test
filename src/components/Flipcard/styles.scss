@@ -10,12 +10,12 @@
   background: #fff;
 
   @media (min-width: 425px) {
-    width: 200px;
+    width: 300px;
   }
 
   &:hover {
-    background: #FFCB05;
-    box-shadow: 0px 0px 22px #FFCB05;
+    background: #ffcb05;
+    box-shadow: 0px 0px 22px #ffcb05;
   }
 
   .card-header {
@@ -35,9 +35,17 @@
     justify-content: center;
     padding-top: 15px;
 
+    background: #ffcb05;
+    border-radius: 15px 15px 5px 5px;
+    height: 30%;
+    width: 100%;
+    position: relative;
+    top: 41%;
+
     > img {
       height: 150px;
-      
+      position: absolute;
+      bottom: 10px;
     }
 
     .details {
@@ -56,8 +64,8 @@
     font-size: 16px;
     outline: none;
     border-top: 1px solid #6e408d;
-    transition: ease-in-out .5s;
-    
+    transition: ease-in-out 0.5s;
+
     position: absolute;
     width: 100%;
     top: 90%;
@@ -95,31 +103,16 @@
   }
 }
 
-.section-abilities {
-  text-align: center;
-  
-  > strong  {
-    color: #444;
-
-    > p {
-      color: #444;
-      font-weight: normal;
-    }
-
-    > span {
-      font-weight: normal;
-    }
-  }
-
-  .line {
-    border: 1px solid #999;
-  }
-}
-
 .section-sprites {
   display: flex;
   width: 100%;
   align-items: center;
   flex-direction: column;
   position: relative;
+
+  > img {
+    background: #fff;
+    border-radius: 50%;
+    background: transparentize($color: #fff, $amount: 0.5);
+  }
 }

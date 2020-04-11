@@ -5,7 +5,7 @@ import { GET_POKEMON, GET_POKEMON_DETAILS, GET_DETAILS_INFO, SET_OFFSET, ERROR }
 
 export const getPokemon = (offset) => {
   return async dispatch => {
-    const res = await api.get(`/pokemon?limit=10&offset=${offset}`)
+    const res = await api.get(`/pokemon?limit=9&offset=${offset}`)
 
     try {
       dispatch({

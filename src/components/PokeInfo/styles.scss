@@ -1,0 +1,23 @@
+.section-info {
+  display: flex;
+  justify-content: center;
+
+  .details-info {
+    > strong {
+      color: #444;
+  
+      > p {
+        color: #444;
+        font-weight: normal;
+      }
+  
+      > span {
+        font-weight: normal;
+        background: transparentize($color:#fff176, $amount: 0.1);
+        padding: 5px 10px;
+        border-radius: 10px;
+        margin: 0px 5px;
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import './styles.scss';
+import PokeInfo from '../PokeInfo';
 
 function FlipCard(props) {
   const { poke, pokeId, onRotateCard, index } = props;
@@ -10,26 +11,6 @@ function FlipCard(props) {
     detailsInfo: state.pokemonReducer.detailsInfo,
     loading: state.pokemonReducer.loading,
   }));
-
-  function Abilities({ info }) {
-    return (
-      <section className="section-abilities">
-        <strong>
-          Habilidades: {info[0].abilities.map((a, i) => <p key={i}> {a.ability.name} </p>)}
-        </strong>
-      </section>
-    )
-  }
-
-  function Forms({ info }) {
-    return (
-      <section className="section-abilities">
-        <strong>
-          Forms: {info[0].forms.map((f, i) => <span key={i}> {f.name} </span>)}
-        </strong>
-      </section>
-    )
-  }
 
   if (loading)
     return 'Carregando...';
@@ -48,7 +29,7 @@ function FlipCard(props) {
             <strong>{poke.name}</strong>
           </div>
           <div className="card-content">
-            <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokeId}.png`} alt="" />
+            <img src={`https://pokeres.bastionbot.org/images/pokemon/${pokeId}.png`} id={`img-poke-${index}`} alt="" />
           </div>
         </div>
 
@@ -59,8 +40,7 @@ function FlipCard(props) {
                 <img src={detailsInfo[0].sprites.front_default} alt="" />
                 <section className="section-back-poke"></section>
               </section>
-              <Abilities info={detailsInfo} />
-              <Forms info={detailsInfo} />
+              <PokeInfo info={detailsInfo} />
             </div>
           ) : 'Carregando...'}
         </div>
