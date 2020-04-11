@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './styles.scss';
@@ -11,14 +11,24 @@ function Pagination() {
     offset: state.pokemonReducer.offset
   }));
 
-  const onPrevPage = (newOffSet) => dispatch(setOffset(newOffSet - 10));
-  const onNextPage = (newOffSet) => dispatch(setOffset(newOffSet + 10));
+  useEffect(() => {
+    if (offset === 0) {
+      document.getElementById('btn-prev').disabled = true;
+      document.getElementById('btn-prev').style.color = '#999';
+    } else {
+      document.getElementById('btn-prev').disabled = false;
+      document.getElementById('btn-prev').style.color = '#333';
+    }
+
+  }, [offset]);
+
+  const onChangePage = (newOffSet) => dispatch(setOffset(newOffSet));
 
   return (
     <div className="container-pagination">
       <div className="pagination">
-        <button onClick={() => onPrevPage(offset)} className="btn-prev">❮</button>
-        <button onClick={() => onNextPage(offset)} className="btn-next">❯</button>
+        <button onClick={() => onChangePage(offset - 10)} className="btn-prev" id="btn-prev">❮</button>
+        <button onClick={() => onChangePage(offset + 10)} className="btn-next">❯</button>
       </div>
     </div>
   )

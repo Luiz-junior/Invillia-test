@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './styles.scss';
@@ -23,7 +22,7 @@ function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, offset]);
 
-  useEffect(()=> {pokeImageId.sort((a, b) => a - b)});
+  useEffect(()=> { pokeImageId.sort((a, b) => a - b)});
 
   useEffect(() => {
     if (pokemon.length > 0) {
@@ -37,7 +36,7 @@ function Home() {
   }, [pokemon]);
 
   const getHability = (detail, idPoke) => {
-    let pokeDetails = detail.filter((d, i) => d.id == idPoke);
+    let pokeDetails = detail.filter(d => d.id === idPoke);
     dispatch(getDetailsInfo(pokeDetails));
   }
 

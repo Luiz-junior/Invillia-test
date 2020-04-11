@@ -1,6 +1,5 @@
 .flip-card {
   border-radius: 5px;
-  /* padding: 50px; */
   margin: 10px;
   color: #fff;
   box-shadow: 0px 0px 10px #c3c3c3;
@@ -10,7 +9,7 @@
   perspective: 1000px;
   background: #fff;
 
-  @media (min-width: 375px) {
+  @media (min-width: 425px) {
     width: 200px;
   }
 
@@ -99,13 +98,12 @@
 .section-abilities {
   text-align: center;
   
-
   > strong  {
-    color: #fff;
-    /* text-shadow: 0 0 3px #eee, 0 0 5px #eee; */
+    color: #444;
 
     > p {
-      color: #fff;
+      color: #444;
+      font-weight: normal;
     }
 
     > span {
@@ -124,16 +122,4 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-
-  > img {
-    
-  }
-
-  /* .section-back-poke {
-    background: red;
-    height: 30px;
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-  } */
 }

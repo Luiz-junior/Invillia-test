@@ -42,7 +42,6 @@ export const getDetailsInfo = (detailsInfo) => {
 
 export const setOffset = (offset) => {
   return dispatch => {
-    console.log('of', offset);
     dispatch({ type: SET_OFFSET, offset })
   }
 }

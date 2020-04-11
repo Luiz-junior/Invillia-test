@@ -1,28 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import './styles.scss';
 
 function FlipCard(props) {
   const { poke, pokeId, onRotateCard, index } = props;
-  const [details, setDetails] = useState();
 
-  const { pokeDetails, detailsInfo, loading } = useSelector(state => ({
-    pokeDetails: state.pokemonReducer.pokemonDetails,
+  const { detailsInfo, loading } = useSelector(state => ({
     detailsInfo: state.pokemonReducer.detailsInfo,
     loading: state.pokemonReducer.loading,
   }));
 
-  useEffect(() => {
-    setDetails(pokeDetails);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pokeDetails]);
-
   function Abilities({ info }) {
     return (
       <section className="section-abilities">
-        <strong> Habilidades: {/* <hr className="line" /> */}
-          {info[0].abilities.map((a, i) => <p key={i}> {a.ability.name} </p>)}
+        <strong>
+          Habilidades: {info[0].abilities.map((a, i) => <p key={i}> {a.ability.name} </p>)}
         </strong>
       </section>
     )
@@ -31,7 +24,7 @@ function FlipCard(props) {
   function Forms({ info }) {
     return (
       <section className="section-abilities">
-        <strong> 
+        <strong>
           Forms: {info[0].forms.map((f, i) => <span key={i}> {f.name} </span>)}
         </strong>
       </section>
@@ -69,9 +62,7 @@ function FlipCard(props) {
               <Abilities info={detailsInfo} />
               <Forms info={detailsInfo} />
             </div>
-          ) : []
-          }
-          <br />
+          ) : 'Carregando...'}
         </div>
       </div>
     </div>
